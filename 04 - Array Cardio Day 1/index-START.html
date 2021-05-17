@@ -83,10 +83,24 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    let alpha = people.sort(function(a,b){
+      let [alast, afirst] = a.split(', ');
+      let [blast, bfirst] = b.split(', ');
+      return alast > blast ? 1 : -1;
+    });
+    console.table(alpha);
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
+    let trans = data.reduce(function(obj, item){
+      if(!obj[item]){
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {})
+    console.log(trans);
   </script>
 </body>
 </html>
